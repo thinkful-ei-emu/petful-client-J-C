@@ -12,15 +12,45 @@ export default class Pet extends React.Component {
     }
 
     fetchCat = () => {
-        fetch(`${config.API_ENDPOINT}/cat`)
+        fetch(`${config.API_ENDPOINT}/cat`, {
+            method: "GET",
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
             .then(res => res.json())
-            .then(data => { this.setState({ cat: data }); console.log(data) })//this.setState({ cats: cats })
+            .then(data => { this.setState({ cat: data }) })//this.setState({ cats: cats })
     }
 
     fetchDog = () => {
-        fetch(`${config.API_ENDPOINT}/dog`)
+        fetch(`${config.API_ENDPOINT}/dog`, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
             .then(res => res.json())
             .then(data => { this.setState({ dog: data }) })
+    }
+
+    handleCatAdopt = () => {
+        fetch(`${config.API_ENDPOINT}/cat`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then(this.fetchCat());
+    }
+
+    handleDogAdopt = () => {
+        fetch(`${config.API_ENDPOINT}/dog`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then(this.fetchDog());
     }
 
     componentDidMount() {
@@ -30,8 +60,6 @@ export default class Pet extends React.Component {
     }
 
     render() {
-        // console.log(this.state.cat)
-        // console.log(this.state.dog)
 
         return (
             <>
@@ -40,6 +68,7 @@ export default class Pet extends React.Component {
                     <p className='description'>"{this.state.cat.imageDescription}"</p>
                     <span>Name: {this.state.cat.name}<br /> Age: {this.state.cat.age}<br /> Sex: {this.state.cat.sex}<br /> Breed: {this.state.cat.breed}</span>
                     <p className='stroy'>Cat's story: {this.state.cat.story}</p>
+                    <button onClick={this.handleCatAdopt} >Adopt</button>
                 </div>
                 <hr />
                 <div className='Dog'>
@@ -47,6 +76,7 @@ export default class Pet extends React.Component {
                     <p className='description'>"{this.state.dog.imageDescription}"</p>
                     <span>Name: {this.state.dog.name}<br /> Age: {this.state.dog.age}<br /> Sex: {this.state.dog.sex}<br /> Breed: {this.state.dog.breed}</span>
                     <p className='stroy'>Cat's story: {this.state.dog.story}</p>
+                    <button onClick={this.handleDogAdopt} >Adopt</button>
                 </div>
             </>
         )
