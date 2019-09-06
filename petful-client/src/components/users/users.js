@@ -3,7 +3,8 @@ import Queue from "./Queue";
 
 export default class Users extends React.Component {
   state = {
-    user: ''
+    user: '',
+    others: []
   }
   loadUsers(userQueue) {
 
@@ -32,9 +33,16 @@ export default class Users extends React.Component {
   grabCurrentUser(users){
     if(users.first){
     let currentUser = users.first.value
-    console.log(currentUser)
+    let otherUsers = []
+    let user = users.first.next
+   
+    while(user !== null){
+      otherUsers.push(user.value)
+      user = user.next
+    }
     this.setState({
-      user: currentUser
+      user: currentUser,
+      others: otherUsers
     })
     }
     else { return 'Loading list...'}
@@ -52,7 +60,9 @@ export default class Users extends React.Component {
   render() {
    
     return (<>
+    
     <p>Current User: {this.state.user}</p>
+    Up Next: <ul>{this.state.others.map(user => <li>${user}</li>)}</ul>
     </>);
   }
 }
