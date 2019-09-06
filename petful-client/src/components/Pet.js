@@ -1,7 +1,6 @@
 import React from 'react'
 import config from '../config';
 
-
 export default class Pet extends React.Component {
     constructor(props) {
         super(props);
@@ -68,7 +67,7 @@ export default class Pet extends React.Component {
                     <p className='description'>"{this.state.cat.imageDescription}"</p>
                     <span>Name: {this.state.cat.name}<br /> Age: {this.state.cat.age}<br /> Sex: {this.state.cat.sex}<br /> Breed: {this.state.cat.breed}</span>
                     <p className='stroy'>Cat's story: {this.state.cat.story}</p>
-                    <button onClick={this.handleCatAdopt} >Adopt</button>
+                   {this.props.active && <button onClick={this.handleCatAdopt} >Adopt</button> } 
                 </div>
                 <hr />
                 <div className='Dog'>
@@ -76,8 +75,10 @@ export default class Pet extends React.Component {
                     <p className='description'>"{this.state.dog.imageDescription}"</p>
                     <span>Name: {this.state.dog.name}<br /> Age: {this.state.dog.age}<br /> Sex: {this.state.dog.sex}<br /> Breed: {this.state.dog.breed}</span>
                     <p className='stroy'>Cat's story: {this.state.dog.story}</p>
-                    <button onClick={this.handleDogAdopt} >Adopt</button>
+                    {this.props.active && <button onClick={this.handleDogAdopt} >Adopt</button>}
                 </div>
+
+            
             </>
         )
     }

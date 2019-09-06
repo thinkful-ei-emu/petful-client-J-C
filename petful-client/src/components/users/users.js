@@ -1,10 +1,12 @@
 import React from 'react'
 import Queue from "./Queue";
+import Pet from '../Pet'
 
 export default class Users extends React.Component {
   state = {
     user: '',
-    others: []
+    others: [],
+    active: false
   }
   loadUsers(userQueue) {
 
@@ -40,10 +42,18 @@ export default class Users extends React.Component {
       otherUsers.push(user.value)
       user = user.next
     }
-    this.setState({
+    if(currentUser === 'Me'){
+      this.setState({
+        user: currentUser,
+        others: otherUsers,
+        active: true
+      })
+    }
+    else {this.setState({
       user: currentUser,
-      others: otherUsers
-    })
+      others: otherUsers,
+      active: false
+    })}
     }
     else { return 'Loading list...'}
   }
@@ -60,9 +70,9 @@ export default class Users extends React.Component {
   render() {
    
     return (<>
-    
+    <Pet active={this.state.active}/>
     <p>Current User: {this.state.user}</p>
-    Up Next: <ul>{this.state.others.map(user => <li>${user}</li>)}</ul>
+    Up Next: <ul>{this.state.others.map(user => <li>{user}</li>)}</ul>
     </>);
   }
 }
