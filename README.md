@@ -8,6 +8,7 @@ Pet adoption: allows a user to read about the process, then wait in line for the
 
 Partner: Colleen and Jordon
 
+Technologies Used: React.js, Javascript
 
 link to live App: 
 
