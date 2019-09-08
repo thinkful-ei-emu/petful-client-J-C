@@ -13,12 +13,10 @@ export default class Users extends React.Component {
     let userData = ["Frodo", "Samwise", "Gandalf", "Galadriel", "Bilbo"];
     let randomNumberOfUsers = 4
     //let randomNumberOfUsers = Math.floor(Math.random() * userData.length);
-    console.log('USER LIST', randomNumberOfUsers)
-    for (let i = 0; i < randomNumberOfUsers; i++) {
+\    for (let i = 0; i < randomNumberOfUsers; i++) {
       userQueue.enqueue(userData[i]);
     }
     userQueue.enqueue('Me')
-    console.log(userQueue)
     return userQueue;
   }
 
