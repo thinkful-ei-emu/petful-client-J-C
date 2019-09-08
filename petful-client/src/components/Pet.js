@@ -53,9 +53,9 @@ export default class Pet extends React.Component {
     }
 
     componentDidMount() {
-        console.log('Fetching...')
         this.fetchCat();
         this.fetchDog();
+
     }
 
     render() {
@@ -74,7 +74,7 @@ export default class Pet extends React.Component {
                     <img src={this.state.dog.imageURL} alt={this.state.dog.name} />
                     <p className='description'>"{this.state.dog.imageDescription}"</p>
                     <span>Name: {this.state.dog.name}<br /> Age: {this.state.dog.age}<br /> Sex: {this.state.dog.sex}<br /> Breed: {this.state.dog.breed}</span>
-                    <p className='stroy'>Cat's story: {this.state.dog.story}</p>
+                    <p className='stroy'>Dog's story: {this.state.dog.story}</p>
                     {this.props.active && <button onClick={this.handleDogAdopt} >Adopt</button>}
                 </div>
 
