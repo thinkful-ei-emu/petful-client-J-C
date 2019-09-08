@@ -43,6 +43,7 @@ export default class Pet extends React.Component {
     }
 
     handleDogAdopt = () => {
+        console.log('ADOPT', `${config.API_ENDPOINT}/dog`)
         fetch(`${config.API_ENDPOINT}/dog`, {
             method: 'DELETE',
             headers: {
@@ -61,7 +62,7 @@ export default class Pet extends React.Component {
     render() {
 
         return (
-            <>
+            <div className='pet'>
                 <div className='Cat'>
                     <img src={this.state.cat.imageURL} alt={this.state.cat.name} />
                     <p className='description'>"{this.state.cat.imageDescription}"</p>
@@ -79,7 +80,7 @@ export default class Pet extends React.Component {
                 </div>
 
             
-            </>
+            </div>
         )
     }
 }

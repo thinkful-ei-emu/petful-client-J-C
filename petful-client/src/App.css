@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  
 }
 
 
@@ -18,3 +22,26 @@
   color: #61dafb;
 }
 
+
+img{
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.pet {
+  display: flex;
+  flex-direction: row;
+  align-self: baseline;
+  
+}
+.users {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  
+}
+ul {
+  list-style-type: none;
+  
+}

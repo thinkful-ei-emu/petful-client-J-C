@@ -67,10 +67,10 @@ export default class Users extends React.Component {
   }
   render() {
    
-    return (<>
+    return (<div className="users">
     <Pet active={this.state.active}/>
     <p>Current User: {this.state.user}</p>
     Up Next: <ul>{this.state.others.map(user => <li>{user}</li>)}</ul>
-    </>);
+    </div>);
   }
 }
