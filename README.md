@@ -8,7 +8,9 @@ Pet adoption: allows a user to read about the process, then wait in line for the
 
 Partner: Colleen and Jordon
 
-Technologies Used: React.js, Javascript
+Technologies Used: React.js, Javascript, CSS
 
-link to live App: 
+link to live App: https://petful-app.colleenhiggins87.now.sh
+
+link to server repo: https://github.com/thinkful-ei-emu/petful-server-J-C/
 
